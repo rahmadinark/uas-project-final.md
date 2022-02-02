@@ -129,7 +129,7 @@ sudo lxc-create -n lxc_php5_2 -t download -- --dist debian --release buster --ar
 sudo lxc-create -n lxc_db_server -t download -- --dist debian --release buster --arch amd64 --force-cache --no-validate --server images.linuxcontainers.org
 ```
 
-Setting autostart, dan IP setiap lxc, Berikut ini adalah list lxcnya
+Setting autostart, dan IP setiap lxc, Install nginx, dan openssh-server, Berikut ini adalah step langkah setting lxcnya
 ```
 # Install nginx dan openssh-server pada masing-masing lxc :
 # Install nginx di masing2 lxc
@@ -152,46 +152,40 @@ exit
 
 # Setting hosts masing2 lxc
 
-```
 sudo lxc-attach -n name_lxc
 sudo nano /etc/hosts
-```
+
 
 # openssh-server pada masing-masing lxc :
-```
 sudo apt install openssh-server python
 cd /etc/ssh
 nano sshd_config
-```
+
 # setting config menjadi
-```
+
 PermitRootLogin yes
 RSAAuthentication yes
-```
+
 # Restart ssh service
-```
+
 sudo service sshd restart
-```
 
 # Setting passwd root
-```
 passwd
-```
+
 
 # Akses lxc melalui SSH
 # jika masih di dalam lxc, silahkan di exit dulu
-````
 ssh root@lxc_name.dev
-```
+
 
 # Keluar ssh   ( lakukan konfigurasi di semua lxc)
 # bisa dengan menekan ctrl + D
 # atau menulis command
-`exit`
+exit
 
-```
 
-Cek lxc 
+Cek list lxc 
 `sudo lxc-ls -f`
 
 ![](assets/1.png)
