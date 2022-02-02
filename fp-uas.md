@@ -255,6 +255,7 @@ Nano install-mariadb.yml
 # Roles db
 
 ![](assets/3.png)
+
 ```
 ---
 - name: restart mysql
@@ -265,6 +266,7 @@ Nano install-mariadb.yml
 ```
 
 ![](assets/4.png)
+
 ```
 ---
 - name: delete apt chache
@@ -481,7 +483,9 @@ collation-server      = utf8mb4_general_ci
 ```
 
 # Roles pma
+
 ![](assets/6.png)
+
 ```
 ---
  - name: stop apache2
@@ -806,6 +810,7 @@ Install-laravel.yml
 ```
 
 ![](assets/11.png)
+
 ```
 ---
 - name: stop apache2
@@ -828,6 +833,7 @@ Install-laravel.yml
 ```
 
 ![](assets/12.png)
+
 ```
 ---
 - name: delete apt chache
@@ -1003,7 +1009,10 @@ server {
     }
 }
 ```
+
 Jalankan install-laravel.yml, hasilnya seperti ini:
+
+
 ![](assets/13.hasillaravel.png)
 
 # Install Codeigniter
@@ -1126,7 +1135,9 @@ Install-ci.yml
     state: present
 ```
 
+
 ![](assets/16.png)
+
 ```
 server {
   listen 80;
@@ -1144,7 +1155,10 @@ server {
   }
 }
 ```
+
 Jalankan install-ci.yml, hasilnya seperti ini :
+
+
 ![](assets/17.png)
 
 # Install Wordpress
