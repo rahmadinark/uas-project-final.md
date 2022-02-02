@@ -80,14 +80,6 @@ Penilaian meliputi:
 ## Hasil Proyek
 
 
-# Laporan Praktikum UAS - Sistem Administrasi Server 
-Disusun oleh :
-1. Chintya Tribhuana Utami (1202190041)
-2. Nur Wulan Maudini (1202190002)
-#
-Praktikum dilaksanakan berdasarkan keadaan yang tertera pada FINAL PROJECT, dan dapat diakses [Klik disini.](https://github.com/aldonesia/Sistem-Administrasi-Server-2021/tree/master/Final%20Project)
-#
-
 Buat LXC yang terdiri dari :
 
 - 6 instance LXC ubuntu 20.04 PHP 7.4
