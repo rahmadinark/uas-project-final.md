@@ -111,7 +111,7 @@ sudo lxc-create -n lxc_mariadb -t download -- --dist debian --release buster --a
 
 Setting autostart, dan IP setiap lxc, Berikut ini adalah list lxcnya
 
-![A1](asset/Picture1.png)
+![](assets/1.png)
 
 Setting sites-available pada vm menggunakan nama kelompok5.fpsas dan symlink ke sites-enabled
 ```
