@@ -183,7 +183,7 @@ ssh root@lxc_name.dev
 # bisa dengan menekan ctrl + D
 # atau menulis command
 exit
-
+```
 
 Cek list lxc 
 `sudo lxc-ls -f`
