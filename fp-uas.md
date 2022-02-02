@@ -36,13 +36,28 @@ teknologi yang digunakan antara lain
 Setiap website memiliki load balancer ke beberapa instance lxc
 
 1. kelompokXX.fpsas/
-	1. Menggunakan metode load balancer Least Connection 4 instance LXC, antara lain LXC_PHP7_1, LXC_PHP7_2, LXC_PHP7_4, LXC_PHP7_6
+	1. Menggunakan metode load balancer Least Connection 4 instance LXC, antara lain 
+	   - LXC_PHP7_1, 
+	   - LXC_PHP7_2, 
+	   - LXC_PHP7_4, 
+	   - LXC_PHP7_6
 2. news.kelompokXX.fpsas
-	1. Menggunakan metode load balancer Ip Hash 4 instance LXC, antara lain LXC_PHP7_2, LXC_PHP7_3, LXC_PHP7_4, LXC_PHP7_5
+	1. Menggunakan metode load balancer Ip Hash 4 instance LXC, antara lain 
+	   - LXC_PHP7_2, 
+	   - LXC_PHP7_3, 
+	   - LXC_PHP7_4, 
+	   - LXC_PHP7_5
 3. kelompokXX.fpsas/product
-	1. Menggunakan metode load balancer Weighted Load Balancing 5 instance LXC, antara lain LXC_PHP7_1 (Weight=3), LXC_PHP7_2 (Weight=2), LXC_PHP7_4 (Weight=4), LXC_PHP7_5 (Weight=1), LXC_PHP7_6 (Weight=6)
+	1. Menggunakan metode load balancer Weighted Load Balancing 5 instance LXC, antara lain 
+	   - LXC_PHP7_1 (Weight=3), 
+	   - LXC_PHP7_2 (Weight=2), 
+	   - LXC_PHP7_4 (Weight=4), 
+	   - LXC_PHP7_5 (Weight=1), 
+	   - LXC_PHP7_6 (Weight=6)
 4. kelompokXX.fpsas/app
-	1. Menggunakan metode load balancer Round Robin 2 instance LXC, antara lain LXC_PHP5_1, LXC_PHP5_2
+	1. Menggunakan metode load balancer Round Robin 2 instance LXC, antara lain 
+	   - LXC_PHP5_1, 
+	   - LXC_PHP5_2
 	
 Database Server terpusat menggunakan lxc debian 10 dengan nama LXC_DB_SERVER 
 
@@ -115,8 +130,72 @@ sudo lxc-create -n lxc_db_server -t download -- --dist debian --release buster -
 ```
 
 Setting autostart, dan IP setiap lxc, Berikut ini adalah list lxcnya
+```
+# Install nginx dan openssh-server pada masing-masing lxc :
+# Install nginx di masing2 lxc
+sudo lxc-start -n name_lxc
+sudo lxc-attach -n name_lxc
+sudo apt install nginx nginx-extras
+
+# Setting ip lxc
+apt install nano net-tools curl
+sudo nano /etc/netplan/10-lxc.yaml
+sudo netplan apply
+ifconfig
+
+
+# Setting autostart di masing2 lxc
+// apabila belum terupdate maka stop lxc lalu start kembali untuk memastikan autostart berhasil
+sudo su
+echo "lxc.start.auto = 1" >> /var/lib/lxc/name_lxc/config
+exit
+
+# Setting hosts masing2 lxc
+
+```
+sudo lxc-attach -n name_lxc
+sudo nano /etc/hosts
+```
+
+# openssh-server pada masing-masing lxc :
+```
+sudo apt install openssh-server python
+cd /etc/ssh
+nano sshd_config
+```
+# setting config menjadi
+```
+PermitRootLogin yes
+RSAAuthentication yes
+```
+# Restart ssh service
+```
+sudo service sshd restart
+```
+
+# Setting passwd root
+```
+passwd
+```
+
+# Akses lxc melalui SSH
+# jika masih di dalam lxc, silahkan di exit dulu
+````
+ssh root@lxc_name.dev
+```
+
+# Keluar ssh   ( lakukan konfigurasi di semua lxc)
+# bisa dengan menekan ctrl + D
+# atau menulis command
+`exit`
+
+```
+
+Cek lxc 
+`sudo lxc-ls -f`
 
 ![](assets/1.png)
+
 
 Setting sites-available pada vm menggunakan nama kelompok7.fpsas dan symlink ke sites-enabled
 ```
@@ -243,7 +322,17 @@ ff02::1 ip6-allnodes
 ff02::2 ip6-allrouters
 ```
 
+---
 Deploy website menggunakan ansible:
+# Install ansible
+`sudo apt install ansible sshpass`
+
+# Buat folder pada ~/ansible
+```
+mkdir -p ~/ansible/uas
+# Masuk ke ansible
+cd ~/ansible/uas
+```
 
 Setting hosts ansible
 
@@ -1857,4 +1946,7 @@ Jalankan install-yii.yml, hasilnya:
    
 3. Cara mengurangi nilai througput dan meningkatkan nilai jumlah user yang dapat dilayani setiap detik untuk skema yang telah dibuat serta faktor-faktor yang mempengaruhinya :
 
-\
+- j
+- l
+- k
+- j
