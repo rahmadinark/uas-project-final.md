@@ -1761,7 +1761,7 @@ server {
 ```
 Jalankan install-yii.yml, hasilnya: //belum berhasil
 
-
+![](assets/28.png)
 
 # Jmeter 
 
@@ -1771,35 +1771,51 @@ Jalankan install-yii.yml, hasilnya: //belum berhasil
 
 - 50
 
-
+![](assets/29.png)
+![](assets/30.png)
+![](assets/31.png)
 
 - 150
-
+![](assets/32.png)
+![](assets/33.png)
+![](assets/34.png)
 
 - 300
-
+![](assets/35.png)
+![](assets/36.png)
+![](assets/37.png)
 
 
 - 500
-
+![](assets/38.png)
+![](assets/39.png)
+![](assets/40.png)
 
 
 ## news.kelompok5.fpsas
 
 - 50
-
+![](assets/41.png)
+![](assets/42.png)
+![](assets/43.png)
 
 
 - 150
-
+![](assets/44.png)
+![](assets/45.png)
+![](assets/46.png)
 
 
 - 300
-
+![](assets/47.png)
+![](assets/48.png)
+![](assets/49.png)
 
 
 - 500
-
+![](assets/50.png)
+![](assets/51.png)
+![](assets/52.png)
 
 
 # Analisis 
