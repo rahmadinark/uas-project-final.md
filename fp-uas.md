@@ -191,7 +191,7 @@ Cek list lxc
 ![](assets/1.png)
 
 
-Setting sites-available pada vm menggunakan nama kelompok7.fpsas dan symlink ke sites-enabled
+### Setting sites-available pada vm menggunakan nama kelompok7.fpsas dan symlink ke sites-enabled
 ```
   upstream laravel {
         least_conn;
@@ -394,7 +394,7 @@ lxc_php7_6 ansible_host=lxc_php7_6_yii.dev ansible_ssh_user=root ansible_become_
 ![](assets/2.png)
 
 # Install Mariadb
-Nano install-mariadb.yml
+nano install-mariadb.yml
 ```
 - hosts: database
   vars:
@@ -408,6 +408,12 @@ Nano install-mariadb.yml
 
 # Roles db
 
+```
+cd ~/ansible/uas/roles/db/handlers
+nano main.yml
+```
+
+
 ![](assets/3.png)
 
 ```
@@ -418,6 +424,8 @@ Nano install-mariadb.yml
   become_method: su
   action: service name=mysql state=restarted 
 ```
+
+`cd ../tasks/ nano main.yml`
 
 ![](assets/4.png)
 
@@ -498,6 +506,9 @@ Nano install-mariadb.yml
     dest=/etc/mysql/mariadb.conf.d/50-server.cnf
   notify: restart mysql
 ```
+
+
+`cd ../templates/ nano my.cnf`
 
 ![](assets/5.png)
 ```
@@ -638,6 +649,11 @@ collation-server      = utf8mb4_general_ci
 
 # Roles pma
 
+```
+cd ~/ansible/uas/roles/pma/handlers
+nano main.yml
+```
+
 ![](assets/6.png)
 
 ```
@@ -660,6 +676,8 @@ collation-server      = utf8mb4_general_ci
    become_method: su
    action: service name=php7.2-fpm state=restarted
 ```
+
+`cd ../tasks/ nano main.yml`
 
 ![](assets/7.png)
 ```
@@ -737,6 +755,8 @@ collation-server      = utf8mb4_general_ci
     line: "127.0.0.1 {{ domain }}"
     state: present
 ```
+
+`cd ../templates/ nano conf.inc.php`
 
 ![](assets/8.png)
 
@@ -896,6 +916,9 @@ $cfg['SaveDir'] = '';
  */
 ```
 
+
+`cd ../templates/ nano pma.local`
+
 ![](assets/9.png)
 
 ```
@@ -966,6 +989,11 @@ Install Laravel
     - laravel
 ```
 
+```
+cd ~/ansible/uas/roles/laravel/handlers
+nano main.yml
+```
+
 ![](assets/11.png)
 
 ```
@@ -988,6 +1016,8 @@ Install Laravel
   become_method: su
   action: service name=php7.2-fpm state=restarted
 ```
+
+`cd ../tasks/ nano main.yml`
 
 ![](assets/12.png)
 
@@ -1131,6 +1161,9 @@ Install Laravel
     state: present
 ```
 
+
+`cd ../templates/ nano landing`
+
 ![](assets/13.png)
 ```
 server {
@@ -1192,6 +1225,11 @@ Install-ci.yml
     - ci
 ```
 
+```
+cd ~/ansible/uas/roles/ci/handlers
+nano main.yml
+```
+
 ![](assets/14.png)
 
 ```
@@ -1208,6 +1246,8 @@ Install-ci.yml
   become_method: su
   action: service name=php5.6-fpm state=restarted
 ```
+
+`cd ../tasks/ nano main.yml`
 
 ![](assets/15.png)
 
@@ -1294,6 +1334,7 @@ Install-ci.yml
     state: present
 ```
 
+`cd ../templates/ nano app.conf`
 
 ![](assets/16.png)
 
@@ -1357,6 +1398,11 @@ username: 'admin'
     - wp
 
 ```
+
+```
+cd ~/ansible/uas/roles/wp/handlers
+nano main.yml
+```
 ![](assets/18.png)
 
 ```
@@ -1373,6 +1419,8 @@ username: 'admin'
   become_method: su
   action: service name=php7.4-fpm state=restarted
 ```
+
+`cd ../tasks/ nano main.yml`
 
 ![](assets/19.png)
 
@@ -1476,6 +1524,8 @@ username: 'admin'
   notify:
     - restart php
 ```
+
+`cd ~/ansible/uas/roles/ci/templates/ nano wp.conf`
 
 ![](assets/20.png)
 
@@ -1656,6 +1706,10 @@ Install-yii.yml
     - yii
 ```
 
+```
+cd ~/ansible/uas/roles/yii/handlers
+nano main.yml
+```
 ![](assets/24.png)
 
 ```
@@ -1672,6 +1726,8 @@ Install-yii.yml
   become_method: su
   action: service name=php5.6-fpm state=restarted
 ```
+
+`cd ../tasks/ nano main.yml`
 
 ![](assets/25.png)
 
@@ -1791,6 +1847,8 @@ Install-yii.yml
     state: present
 ```
 
+`cd ../templates/ nano db.php`
+
 ![](assets/26.png)
 ```
 <?php
@@ -1804,6 +1862,8 @@ return [
 ];
 ```
 
+
+`cd ../templates/ nano product.config`
 ![](assets/27.png)
 
 ```
