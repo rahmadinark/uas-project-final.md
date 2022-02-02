@@ -406,7 +406,7 @@ nano install-mariadb.yml
     - pma
 ```
 
-# Roles db
+## Roles db
 
 ```
 cd ~/ansible/uas/roles/db/handlers
@@ -647,7 +647,7 @@ collation-server      = utf8mb4_general_ci
 [mariadb-10.3]
 ```
 
-# Roles pma
+## Roles pma
 
 ```
 cd ~/ansible/uas/roles/pma/handlers
@@ -961,7 +961,7 @@ http://kelompok7.fpsas/phpmyadmin/index.php
 
 ![](assets/10.png)
 
-Install Laravel
+# Install Laravel
 `install-laravel.yml`
 ```
 - hosts: laravel
