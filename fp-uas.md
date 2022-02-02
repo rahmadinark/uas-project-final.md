@@ -81,9 +81,9 @@ Penilaian meliputi:
 5. https://wordpress.org/support/article/how-to-install-wordpress/
 
 
--
+----
 ## Hasil Proyek
--
+----
 
 Buat LXC yang terdiri dari :
 
