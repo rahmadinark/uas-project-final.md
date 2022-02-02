@@ -1671,7 +1671,7 @@ server {
 ```
 Jalankan install-yii.yml, hasilnya: //belum berhasil
 
-![A1](asset/Picture29.png)
+
 
 # Jmeter 
 
@@ -1681,187 +1681,63 @@ Jalankan install-yii.yml, hasilnya: //belum berhasil
 
 - 50
 
-![A1](asset/Picture30.png)
 
-![A1](asset/Picture31.png)
-
-![A1](asset/Picture32.png)
 
 - 150
 
-![A1](asset/Picture33.png)
-
-![A1](asset/Picture34.png)
-
-![A1](asset/Picture35.png)
 
 - 300
 
-![A1](asset/Picture36.png)
 
-![A1](asset/Picture37.png)
-
-![A1](asset/Picture38.png)
 
 - 500
 
-![A1](asset/Picture39.png)
 
-![A1](asset/Picture40.png)
-
-![A1](asset/Picture41.png)
 
 ## news.kelompok5.fpsas
 
 - 50
 
-![A1](asset/Picture42.png)
 
-![A1](asset/Picture43.png)
-
-![A1](asset/Picture44.png)
 
 - 150
 
-![A1](asset/Picture45.png)
 
-![A1](asset/Picture46.png)
-
-![A1](asset/Picture47.png)
 
 - 300
 
-![A1](asset/Picture48.png)
 
-![A1](asset/Picture49.png)
-
-![A1](asset/Picture50.png)
 
 - 500
 
-![A1](asset/Picture51.png)
 
-![A1](asset/Picture52.png)
-
-![A1](asset/Picture53.png)
 
 # Analisis 
 1. Nilai rata – rata Throughput untuk setiap website yang dihasilkan dari load testing
 
 - 50 user
-   - kelompok5.fpsas/ : 32.2/s
-   - kelompok5.fpsas/app : 34.6/s
-   - kelompok5.fpsas/product : 25.2/s
-   - news.kelompok5.fpsas/ : 568.2/s
+
 
 - 150 user
-   - kelompok5.fpsas/ : 30.1/s
-   - kelompok5.fpsas/app : 31.3/s
-   - kelompok5.fpsas/product : 26.1/s
-   - news.kelompok5.fpsas/ : 738.9/s
+
 
 - 300 user
-   - kelompok5.fpsas/ : 50/s
-   - kelompok5.fpsas/app : 50.7/s
-   - kelompok5.fpsas/product : 35.8/s
-   - news.kelompok5.fpsas/ : 547.4/s
+
 
 - 500 user
-   - kelompok5.fpsas/ : 63.2/s
-   - kelompok5.fpsas/app : 63.3/s
-   - kelompok5.fpsas/product : 42.8/s
-   - news.kelompok5.fpsas/ : 591.7/s
+
 
 2. Nilai rata - rata jumlah user yang dapat dilayani setiap detik untuk setiap website yang dihasilkan dari load testing
 - 50 user
-   - kelompok5.fpsas/ : 292        
-   - kelompok5.fpsas/app : 419
-   - kelompok5.fpsas/product : 219
-   - news.kelompok5.fpsas/ : 52
+
 
 - 150 user
-   - kelompok5.fpsas/ : 1001
-   - kelompok5.fpsas/app : 628
-   - kelompok5.fpsas/product : 503
-   - news.kelompok5.fpsas/ : 95 
+
 
 - 300 user
-   - kelompok5.fpsas/ : 917
-   - kelompok5.fpsas/app : 221
-   - kelompok5.fpsas/product : 798
-   - news.kelompok5.fpsas/ : 222 
+
 
 - 500 user
-   - kelompok5.fpsas/ : 1129
-   - kelompok5.fpsas/app : 459
-   - kelompok5.fpsas/product : 1117
-   - news.kelompok5.fpsas/ : 359
    
 3. Cara mengurangi nilai througput dan meningkatkan nilai jumlah user yang dapat dilayani setiap detik untuk skema yang telah dibuat serta faktor-faktor yang mempengaruhinya :
-- Optimasi database
-- Downgrade OS
-- Mengoptimalkan kinerja framework yang digunakan
 
-
-
-
-
-
-
-
-
-![](assets/1.png)
-
-![](assets/2.png)
-
-![](assets/3.png)
-
-![](assets/4.png)
-
-![](assets/5.png)
-
-![](assets/6.png)
-
-![](assets/7.png)
-
-![](assets/8.png)
-
-![](assets/9.png)
-
-![](assets/10.png)
-
-![](assets/11.png)
-
-![](assets/12.png)
-
-![](assets/13.png)
-
-![](assets/13.hasillaravel.png)
-
-![](assets/14.png)
-
-![](assets/15.png)
-
-![](assets/16.png)
-
-![](assets/17.png)
-
-![](assets/18.png)
-
-![](assets/19.png)
-
-![](assets/20.png)
-
-![](assets/21.png)
-
-![](assets/22.png)
-
-![](assets/23.png)
-
-![](assets/24.png)
-
-![](assets/25.png)
-
-![](assets/26.png)
-
-![](assets/27.png)
