@@ -104,21 +104,21 @@ sudo lxc-create -n lxc_php7_6 -t download -- --dist ubuntu --release focal fossa
 
 - 2 instance LXC debian 10 PHP 5.6
 ```
-sudo lxc-create -n lxc_php5_1 -t download -- --dist debian --release buster --arch amd64 --force-cache --no-validate --server images.linuxcontainers.org
+sudo lxc-create -n lxc_php5 -t download -- --dist debian --release buster --arch amd64 --force-cache --no-validate --server images.linuxcontainers.org
 
 sudo lxc-create -n lxc_php5_2 -t download -- --dist debian --release buster --arch amd64 --force-cache --no-validate --server images.linuxcontainers.org
 ```
 
 - 1 instance LXC debian 10 mariadb server
 ```
-sudo lxc-create -n lxc_mariadb -t download -- --dist debian --release buster --arch amd64 --force-cache --no-validate --server images.linuxcontainers.org
+sudo lxc-create -n lxc_db_server -t download -- --dist debian --release buster --arch amd64 --force-cache --no-validate --server images.linuxcontainers.org
 ```
 
 Setting autostart, dan IP setiap lxc, Berikut ini adalah list lxcnya
 
 ![](assets/1.png)
 
-Setting sites-available pada vm menggunakan nama kelompok5.fpsas dan symlink ke sites-enabled
+Setting sites-available pada vm menggunakan nama kelompok7.fpsas dan symlink ke sites-enabled
 ```
   upstream laravel {
         least_conn;
@@ -135,7 +135,7 @@ Setting sites-available pada vm menggunakan nama kelompok5.fpsas dan symlink ke 
         server lxc_php7_6_yii.dev weight=6;
    }
   upstream ci {
-        server lxc_php5_1.dev;
+        server lxc_php5.dev;
         server lxc_php5_2.dev;
   }
   upstream wp {
@@ -1108,9 +1108,9 @@ Install-ci.yml
   roles:
     - ci
 ```
-#Sampai siniii checkingnya
 
 ![](assets/14.png)
+
 ```
 ---
 - name: restart nginx
@@ -1233,7 +1233,7 @@ server {
 ```
 
 Jalankan install-ci.yml, hasilnya seperti ini :
-
+http://kelompok7.fpsas/app
 
 ![](assets/17.png)
 
@@ -1244,7 +1244,7 @@ Install-wp.yml
 - hosts: lxc_php7_4_wp
   vars:
     username: 'admin'
-    password: 'chintya'
+    password: 'generasi3'
     domain: lxc_php7_4_wp.dev
   roles:
     - wp
@@ -1252,7 +1252,7 @@ Install-wp.yml
 - hosts: lxc_php7_3_wp
   vars:
     username: 'admin'
-    password: 'chintya'
+    password: 'generasi3'
     domain: lxc_php7_3_wp.dev
   roles:
     - wp
@@ -1260,7 +1260,7 @@ Install-wp.yml
 - hosts: lxc_php7_5_wp
   vars:
     username: 'admin'
-    password: 'chintya'
+    password: 'generasi3'
     domain: lxc_php7_5_wp.dev
   roles:
     - wp
@@ -1268,13 +1268,14 @@ Install-wp.yml
 - hosts: wp
   vars:
 username: 'admin'
-    password: 'chintya'
+    password: 'generasi3'
     domain: lxc_php7_2.dev
   roles:
     - wp
 
 ```
 ![](assets/18.png)
+
 ```
 ---
 - name: restart nginx
@@ -1291,6 +1292,7 @@ username: 'admin'
 ```
 
 ![](assets/19.png)
+
 ```
 ---
 - name: delete apt chache
@@ -1393,6 +1395,7 @@ username: 'admin'
 ```
 
 ![](assets/20.png)
+
 ```
 <?php
 /**
@@ -1414,8 +1417,8 @@ username: 'admin'
 * @package WordPress
 */
 
-define( 'WP_HOME', 'http://news.kelompok5.fpsas' );
-define( 'WP_SITEURL', 'http://news.kelompok5.fpsas' );
+define( 'WP_HOME', 'http://news.kelompok7.fpsas' );
+define( 'WP_SITEURL', 'http://news.kelompok7.fpsas' );
 
 // ** MySQL settings - You can get this info from your web host ** //
 /** The name of the database for WordPress */
@@ -1425,10 +1428,10 @@ define( 'DB_NAME', 'news' );
 define( 'DB_USER', 'admin' );
 
 /** MySQL database password */
-define( 'DB_PASSWORD', 'chintya' );
+define( 'DB_PASSWORD', 'generasi3' );
 
 /** MySQL hostname */
-define( 'DB_HOST', '10.0.3.200:3306' );
+define( 'DB_HOST', '10.0.3.202:3306' );
 
 /** Database charset to use in creating database tables. */
 define( 'DB_CHARSET', 'utf8' );
@@ -1525,6 +1528,9 @@ server {
 ```
 
 Jalankan install-wp.yml, hasilnya:
+http://news.kelompok7.fpsas/
+
+# sampai sini checkingnya
 
 ![](assets/21.png)
 
@@ -1852,3 +1858,4 @@ Jalankan install-yii.yml, hasilnya:
    
 3. Cara mengurangi nilai througput dan meningkatkan nilai jumlah user yang dapat dilayani setiap detik untuk skema yang telah dibuat serta faktor-faktor yang mempengaruhinya :
 
+\
