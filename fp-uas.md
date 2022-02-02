@@ -145,7 +145,7 @@ Setting sites-available pada vm menggunakan nama kelompok5.fpsas dan symlink ke 
           listen 80;
           listen [::]:80;
 
-          server_name kelompok5.fpsas;
+          server_name kelompok7.fpsas;
 
           root /var/www/html;
           index index.html;
@@ -178,7 +178,7 @@ Setting sites-available pada vm menggunakan nama kelompok5.fpsas dan symlink ke 
   server {
          listen 80;
 
-         server_name news.kelompok5.fpsas;
+         server_name news.kelompok7.fpsas;
 
          root /var/www/html;
          index index.html;
@@ -196,7 +196,7 @@ Daftar semua lxc pada /etc/hosts di vm
 ```
 127.0.0.1 localhost
 127.0.1.1 sas01
-127.0.0.1 kelompok5.fpsas news.kelompok5.fpsas
+127.0.0.1 kelompok7.fpsas news.kelompok7.fpsas
 
 #laravel
 10.0.3.101  lxc_php7_1.dev
@@ -218,12 +218,17 @@ Daftar semua lxc pada /etc/hosts di vm
 10.0.3.105  lxc_php7_5_wp.dev
 
 #ci
-10.0.3.111  lxc_php5_1.dev
-10.0.3.112  lxc_php5_2.dev
+10.0.3.200  lxc_php5.dev
+10.0.3.201  lxc_php5_2.dev
 
 #db
-10.0.3.200  lxc_db_server.dev
-#10.0.3.201  lxc_db_server_coba.dev
+10.0.3.202  lxc_db_server.dev
+
+10.0.3.103  lxc_php7_3.dev
+10.0.3.104  lxc_php7_4.dev
+10.0.3.105  lxc_php7_5.dev
+10.0.3.106  lxc_php7_6.dev
+
 
 # The following lines are desirable for IPv6 capable hosts
 ::1     ip6-localhost ip6-loopback
@@ -237,6 +242,67 @@ Deploy website menggunakan ansible:
 
 Setting hosts ansible
 
+``
+cd ~/ansible/uas
+nano hosts
+``
+
+---
+Buat file hosts sebagai vagrant inventory, dengan isi:
+
+keterangan sintax
+```
+nama_host ansible_host=[IP/DOMAIN] ansible_ssh_user=[UserName] ansible_become_pass=[password user]
+```
+
+```
+[ci]
+lxc_php5 ansible_host=lxc_php5.dev ansible_ssh_user=root ansible_become_pass=generasi3
+lxc_php5_2 ansible_host=lxc_php5_2.dev ansible_ssh_user=root ansible_become_pass=generasi3
+
+[laravel]
+lxc_php7_1 ansible_host=lxc_php7_1.dev ansible_ssh_user=root ansible_become_pass=generasi3
+
+[wp]
+lxc_php7_2 ansible_host=lxc_php7_2.dev ansible_ssh_user=root ansible_become_pass=generasi3
+
+#[yii]
+#lxc_php7_4 ansible_host=lxc_php7_4.dev ansible_ssh_user=root ansible_become_pass=generasi3
+#lxc_php7_3 ansible_host=lxc_php7_3.dev ansible_ssh_user=root ansible_become_pass=generasi3
+
+[database]
+lxc_db_server ansible_host=lxc_db_server.dev ansible_ssh_user=root ansible_become_pass=generasi3
+
+[lxc_php7_2_laravel]
+lxc_php7_2 ansible_host=lxc_php7_2_laravel.dev ansible_ssh_user=root ansible_become_pass=generasi3
+[lxc_php7_4_laravel]
+lxc_php7_4 ansible_host=lxc_php7_4_laravel.dev ansible_ssh_user=root ansible_become_pass=generasi3
+[lxc_php7_6_laravel]
+lxc_php7_6 ansible_host=lxc_php7_6_laravel.dev ansible_ssh_user=root ansible_become_pass=generasi3
+
+
+[lxc_php7_3_wp]
+lxc_php7_3 ansible_host=lxc_php7_3_wp.dev ansible_ssh_user=root ansible_become_pass=generasi3
+[lxc_php7_4_wp]
+lxc_php7_4 ansible_host=lxc_php7_4_wp.dev ansible_ssh_user=root ansible_become_pass=generasi3
+[lxc_php7_5_wp]
+lxc_php7_5 ansible_host=lxc_php7_5_wp.dev ansible_ssh_user=root ansible_become_pass=generasi3
+
+[lxc_php7_1_yii]
+lxc_php7_1 ansible_host=lxc_php7_1_yii.dev ansible_ssh_user=root ansible_become_pass=generasi3
+[lxc_php7_2_yii]
+lxc_php7_2 ansible_host=lxc_php7_2_yii.dev ansible_ssh_user=root ansible_become_pass=generasi3
+[lxc_php7_4_yii]
+lxc_php7_4 ansible_host=lxc_php7_4_yii.dev ansible_ssh_user=root ansible_become_pass=generasi3
+[lxc_php7_5_yii]
+lxc_php7_5 ansible_host=lxc_php7_5_yii.dev ansible_ssh_user=root ansible_become_pass=generasi3
+[lxc_php7_6_yii]
+lxc_php7_6 ansible_host=lxc_php7_6_yii.dev ansible_ssh_user=root ansible_become_pass=generasi3
+
+```
+
+
+
 ![](assets/2.png)
 
 # Install Mariadb
@@ -245,7 +311,7 @@ Nano install-mariadb.yml
 - hosts: database
   vars:
     username: 'admin'
-    password: 'chintya'
+    password: 'generasi3'
     domain: 'lxc_db_server.dev'
   roles:
     - db
@@ -365,7 +431,7 @@ Nano install-mariadb.yml
 user                    = mysql
 pid-file                = /run/mysqld/mysqld.pid
 socket                  = /run/mysqld/mysqld.sock
-port                   = 3306
+port                    = 3306
 basedir                 = /usr
 datadir                 = /var/lib/mysql
 tmpdir                  = /tmp
@@ -585,6 +651,7 @@ collation-server      = utf8mb4_general_ci
 ```
 
 ![](assets/8.png)
+
 ```
 <?php
 /**
@@ -742,6 +809,7 @@ $cfg['SaveDir'] = '';
 ```
 
 ![](assets/9.png)
+
 ```
 server {
     listen 80;
@@ -778,11 +846,12 @@ server {
 ```
 
 Jalankan install-mariadb.yml, hasilnya seperti ini:
+http://kelompok7.fpsas/phpmyadmin/index.php
 
 ![](assets/10.png)
 
 Install Laravel
-Install-laravel.yml
+`install-laravel.yml`
 ```
 - hosts: laravel
   vars:
@@ -912,13 +981,13 @@ Install-laravel.yml
   lineinfile:
     dest=/var/www/html/landing/.env
     regexp='^APP_URL='
-    line=APP_URL=http://kelompok5.fpsas
+    line=APP_URL=http://kelompok7.fpsas
 
 - name: set DB_HOST
   lineinfile:
     dest=/var/www/html/landing/.env
     regexp='^DB_HOST='
-    line=DB_HOST=10.0.3.200
+    line=DB_HOST=10.0.3.202
 
 - name: set DB_DATABASE
   lineinfile:
@@ -936,7 +1005,7 @@ Install-laravel.yml
   lineinfile:
     dest=/var/www/html/landing/.env
     regexp='^DB_PASSWORD='
-    line=DB_PASSWORD=chintya
+    line=DB_PASSWORD=generasi3
 
 - name: change permission storage
   command: chmod -R 777 /var/www/html/landing/storage
@@ -1011,7 +1080,7 @@ server {
 ```
 
 Jalankan install-laravel.yml, hasilnya seperti ini:
-
+http://kelompok7.fpsas/
 
 ![](assets/13.hasillaravel.png)
 
@@ -1034,6 +1103,8 @@ Install-ci.yml
   roles:
     - ci
 ```
+#Sampai siniii checkingnya
+
 ![](assets/14.png)
 ```
 ---
