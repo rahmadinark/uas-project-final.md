@@ -1974,32 +1974,13 @@ Jalankan install-yii.yml, hasilnya:
 
 
 # Analisis 
+
 1. Nilai rata – rata Throughput untuk setiap website yang dihasilkan dari load testing
-
-- 50 user
-
-
-- 150 user
-
-
-- 300 user
-
-
-- 500 user
-
-
 2. Nilai rata - rata jumlah user yang dapat dilayani setiap detik untuk setiap website yang dihasilkan dari load testing
-- 50 user
 
+![](assets/hasilanalisa.png)
 
-- 150 user
-
-
-- 300 user
-
-
-- 500 user
-   
+ 
 3. Cara mengurangi nilai througput dan meningkatkan nilai jumlah user yang dapat dilayani setiap detik untuk skema yang telah dibuat serta faktor-faktor yang mempengaruhinya :
 
 - j
