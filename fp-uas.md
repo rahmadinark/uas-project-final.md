@@ -1,4 +1,7 @@
 # FINAL PROJECT SISTEM ADMINISTRASI SERVER 2021/2022
+### Kelompok 7 (Semester 5)
+1. 1202190016 Rahmadina Oktaviana
+2. 1202190007 Riska Aprilia
 
 ## Jalan Cerita
 
@@ -77,8 +80,10 @@ Penilaian meliputi:
 4. https://www.codeigniter.com/userguide3/installation/index.html
 5. https://wordpress.org/support/article/how-to-install-wordpress/
 
-## Hasil Proyek
 
+-
+## Hasil Proyek
+-
 
 Buat LXC yang terdiri dari :
 
@@ -1759,15 +1764,15 @@ server {
         }
 }
 ```
-Jalankan install-yii.yml, hasilnya: //belum berhasil
+Jalankan install-yii.yml, hasilnya:
 
 ![](assets/28.png)
 
 # Jmeter 
 
-## Load Testing
+### Load Testing
 
-## kelompok5.fpsas
+#### kelompok7.fpsas
 
 - 50
 
@@ -1792,7 +1797,7 @@ Jalankan install-yii.yml, hasilnya: //belum berhasil
 ![](assets/40.png)
 
 
-## news.kelompok5.fpsas
+## news.kelompok7.fpsas
 
 - 50
 ![](assets/41.png)
