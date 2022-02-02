@@ -1435,6 +1435,7 @@ server {
 ```
 
 Jalankan install-wp.yml, hasilnya:
+
 ![](assets/21.png)
 
 ![](assets/22.png)
@@ -1478,6 +1479,7 @@ Install-yii.yml
 ```
 
 ![](assets/24.png)
+
 ```
 ---
 - name: restart nginx
@@ -1492,7 +1494,9 @@ Install-yii.yml
   become_method: su
   action: service name=php5.6-fpm state=restarted
 ```
+
 ![](assets/25.png)
+
 ```
 ---
 - name: delete apt chache
@@ -1623,6 +1627,7 @@ return [
 ```
 
 ![](assets/27.png)
+
 ```
 server {
         listen 80;
