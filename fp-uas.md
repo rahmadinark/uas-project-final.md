@@ -84,17 +84,17 @@ Buat LXC yang terdiri dari :
 
 - 6 instance LXC ubuntu 20.04 PHP 7.4
 ```
-sudo lxc-create -n lxc_php7_1 -t download -- --dist ubuntu --release focal --arch amd64 --force-cache --no-validate --server images.linuxcontainers.org
+sudo lxc-create -n lxc_php7_1 -t download -- --dist ubuntu --release focal fossa --arch amd64 --force-cache --no-validate --server images.linuxcontainers.org
 
-sudo lxc-create -n lxc_php7_2 -t download -- --dist ubuntu --release focal --arch amd64 --force-cache --no-validate --server images.linuxcontainers.org
+sudo lxc-create -n lxc_php7_2 -t download -- --dist ubuntu --release focal fossa --arch amd64 --force-cache --no-validate --server images.linuxcontainers.org
 
-sudo lxc-create -n lxc_php7_3 -t download -- --dist ubuntu --release focal --arch amd64 --force-cache --no-validate --server images.linuxcontainers.org
+sudo lxc-create -n lxc_php7_3 -t download -- --dist ubuntu --release focal fossa --arch amd64 --force-cache --no-validate --server images.linuxcontainers.org
 
-sudo lxc-create -n lxc_php7_4 -t download -- --dist ubuntu --release focal --arch amd64 --force-cache --no-validate --server images.linuxcontainers.org
+sudo lxc-create -n lxc_php7_4 -t download -- --dist ubuntu --release focal fossa --arch amd64 --force-cache --no-validate --server images.linuxcontainers.org
 
-sudo lxc-create -n lxc_php7_5 -t download -- --dist ubuntu --release focal --arch amd64 --force-cache --no-validate --server images.linuxcontainers.org
+sudo lxc-create -n lxc_php7_5 -t download -- --dist ubuntu --release focal fossa --arch amd64 --force-cache --no-validate --server images.linuxcontainers.org
 
-sudo lxc-create -n lxc_php7_6 -t download -- --dist ubuntu --release focal --arch amd64 --force-cache --no-validate --server images.linuxcontainers.org
+sudo lxc-create -n lxc_php7_6 -t download -- --dist ubuntu --release focal fossa --arch amd64 --force-cache --no-validate --server images.linuxcontainers.org
 ```
 
 - 2 instance LXC debian 10 PHP 5.6
