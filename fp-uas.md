@@ -1530,7 +1530,6 @@ server {
 Jalankan install-wp.yml, hasilnya:
 http://news.kelompok7.fpsas/
 
-# sampai sini checkingnya
 
 ![](assets/21.png)
 
@@ -1665,7 +1664,7 @@ Install-yii.yml
     arguments: yiisoft/yii2-app-basic product
     working_dir: /var/www/html
     prefer_dist: yes
- environment:
+  environment:
     COMPOSER_NO_INTERACTION: "1"
 
 - name: set permission
@@ -1715,9 +1714,9 @@ Install-yii.yml
 
 return [
     'class' => 'yii\db\Connection',
-    'dsn' => 'mysql:host=127.0.3.200:3306;dbname=product',
+    'dsn' => 'mysql:host=127.0.3.202:3306;dbname=product',
     'username' => 'admin',
-    'password' => 'chintya',
+    'password' => 'generasi3',
     'charset' => 'utf8',
 ];
 ```
