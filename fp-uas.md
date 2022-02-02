@@ -237,7 +237,7 @@ Deploy website menggunakan ansible:
 
 Setting hosts ansible
 
-![A1](asset/Picture2.png)
+![](assets/2.png)
 
 # Install Mariadb
 Nano install-mariadb.yml
@@ -254,7 +254,7 @@ Nano install-mariadb.yml
 
 # Roles db
 
-![A1](asset/Picture3.png)
+![](assets/3.png)
 ```
 ---
 - name: restart mysql
@@ -264,7 +264,7 @@ Nano install-mariadb.yml
   action: service name=mysql state=restarted 
 ```
 
-![A1](asset/Picture4.png)
+![](assets/4.png)
 ```
 ---
 - name: delete apt chache
@@ -343,7 +343,7 @@ Nano install-mariadb.yml
   notify: restart mysql
 ```
 
-![A1](asset/Picture5.png)
+![](assets/5.png)
 ```
 #
 # These groups are read by MariaDB server.
@@ -481,7 +481,7 @@ collation-server      = utf8mb4_general_ci
 ```
 
 # Roles pma
-![A1](asset/Picture6.png)
+![](assets/6.png)
 ```
 ---
  - name: stop apache2
@@ -503,7 +503,7 @@ collation-server      = utf8mb4_general_ci
    action: service name=php7.2-fpm state=restarted
 ```
 
-![A1](asset/Picture7.png)
+![](assets/7.png)
 ```
 ---
 - name: delete apt chache
@@ -580,7 +580,7 @@ collation-server      = utf8mb4_general_ci
     state: present
 ```
 
-![A1](asset/Picture8.png)
+![](assets/8.png)
 ```
 <?php
 /**
@@ -737,7 +737,7 @@ $cfg['SaveDir'] = '';
  */
 ```
 
-![A1](asset/Picture9.png)
+![](assets/9.png)
 ```
 server {
     listen 80;
@@ -775,7 +775,7 @@ server {
 
 Jalankan install-mariadb.yml, hasilnya seperti ini:
 
-![A1](asset/Picture10.jpg)
+![](assets/10.png)
 
 Install Laravel
 Install-laravel.yml
@@ -805,7 +805,7 @@ Install-laravel.yml
     - laravel
 ```
 
-![A1](asset/Picture11.png)
+![](assets/11.png)
 ```
 ---
 - name: stop apache2
@@ -827,7 +827,7 @@ Install-laravel.yml
   action: service name=php7.2-fpm state=restarted
 ```
 
-![A1](asset/Picture12.png)
+![](assets/12.png)
 ```
 ---
 - name: delete apt chache
@@ -968,7 +968,7 @@ Install-laravel.yml
     state: present
 ```
 
-![A1](asset/Picture13.png)
+![](assets/13.png)
 ```
 server {
 
@@ -1004,7 +1004,7 @@ server {
 }
 ```
 Jalankan install-laravel.yml, hasilnya seperti ini:
-![A1](asset/Picture15.png)
+![](assets/13.hasillaravel.png)
 
 # Install Codeigniter
 Install-ci.yml
@@ -1025,7 +1025,7 @@ Install-ci.yml
   roles:
     - ci
 ```
-![A1](asset/Picture14.png)
+![](assets/14.png)
 ```
 ---
 - name: restart nginx
@@ -1041,7 +1041,7 @@ Install-ci.yml
   action: service name=php5.6-fpm state=restarted
 ```
 
-![A1](asset/Picture16.png)
+![](assets/15.png)
 
 ```
 ---
@@ -1126,7 +1126,7 @@ Install-ci.yml
     state: present
 ```
 
-![A1](asset/Picture17.png)
+![](assets/16.png)
 ```
 server {
   listen 80;
@@ -1145,7 +1145,7 @@ server {
 }
 ```
 Jalankan install-ci.yml, hasilnya seperti ini :
-![A1](asset/Picture19.png)
+![](assets/17.png)
 
 # Install Wordpress
 
@@ -1184,7 +1184,7 @@ username: 'admin'
     - wp
 
 ```
-![A1](asset/Picture18.png)
+![](assets/18.png)
 ```
 ---
 - name: restart nginx
@@ -1200,7 +1200,7 @@ username: 'admin'
   action: service name=php7.4-fpm state=restarted
 ```
 
-![A1](asset/Picture20.png)
+![](assets/19.png)
 ```
 ---
 - name: delete apt chache
@@ -1302,7 +1302,7 @@ username: 'admin'
     - restart php
 ```
 
-![A1](asset/Picture21.png)
+![](assets/20.png)
 ```
 <?php
 /**
@@ -1435,11 +1435,11 @@ server {
 ```
 
 Jalankan install-wp.yml, hasilnya:
-![A1](asset/Picture22.png)
+![](assets/21.png)
 
-![A1](asset/Picture23.png)
+![](assets/22.png)
 
-![A1](asset/Picture24.png)
+![](assets/23.png)
 
 
 # Install Yii 2.0
@@ -1477,7 +1477,7 @@ Install-yii.yml
     - yii
 ```
 
-![A1](asset/Picture25.png)
+![](assets/24.png)
 ```
 ---
 - name: restart nginx
@@ -1492,7 +1492,7 @@ Install-yii.yml
   become_method: su
   action: service name=php5.6-fpm state=restarted
 ```
-![A1](asset/Picture26.png)
+![](assets/25.png)
 ```
 ---
 - name: delete apt chache
@@ -1609,7 +1609,7 @@ Install-yii.yml
     state: present
 ```
 
-![A1](asset/Picture27.png)
+![](assets/26.png)
 ```
 <?php
 
@@ -1622,7 +1622,7 @@ return [
 ];
 ```
 
-![A1](asset/Picture28.png)
+![](assets/27.png)
 ```
 server {
         listen 80;
@@ -1669,7 +1669,7 @@ server {
         }
 }
 ```
-Jalankan install-yii.yml, hasilnya:
+Jalankan install-yii.yml, hasilnya: //belum berhasil
 
 ![A1](asset/Picture29.png)
 
