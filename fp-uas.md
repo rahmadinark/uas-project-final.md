@@ -1982,8 +1982,6 @@ Jalankan install-yii.yml, hasilnya:
 
  
 3. Cara mengurangi nilai througput dan meningkatkan nilai jumlah user yang dapat dilayani setiap detik untuk skema yang telah dibuat serta faktor-faktor yang mempengaruhinya :
-
-- j
-- l
-- k
-- j
+- Optimasi database
+- Downgrade OS
+- Mengoptimalkan kinerja framework yang digunakan
