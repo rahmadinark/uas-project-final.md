@@ -1982,6 +1982,7 @@ Jalankan install-yii.yml, hasilnya:
 
  
 3. Cara mengurangi nilai througput dan meningkatkan nilai jumlah user yang dapat dilayani setiap detik untuk skema yang telah dibuat serta faktor-faktor yang mempengaruhinya :
+
 a. server
   - meningkatkan atau mengupdate hardware dengan peforma tinggi
   - menambah container baru pada load balancer
@@ -1989,6 +1990,7 @@ a. server
   - menghapus layanan yang tidak perlu
   - optimasi database
   - meningkatkan kualitas atau kecepatan jaringan internet
+
 b. website
   - menghapus plugin yang tidak perlu
   - optimasi gambar
